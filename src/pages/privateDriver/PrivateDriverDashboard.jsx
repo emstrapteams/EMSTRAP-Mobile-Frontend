@@ -36,12 +36,12 @@ import { declineBooking } from "../../services/api";
 // ─── Status Config ────────────────────────────────────────────────────────────
 
 const STATUS_CONFIG = {
-  PENDING:     { label: "Pending",      color: "text-yellow-600 dark:text-yellow-400",  bg: "bg-yellow-50 dark:bg-yellow-950/20",   border: "border-yellow-200 dark:border-yellow-800" },
-  ACCEPTED:    { label: "Accepted",     color: "text-blue-600 dark:text-blue-400",      bg: "bg-blue-50 dark:bg-blue-950/20",       border: "border-blue-200 dark:border-blue-800" },
-  ARRIVED:     { label: "Arrived",      color: "text-indigo-600 dark:text-indigo-400",  bg: "bg-indigo-50 dark:bg-indigo-950/20",  border: "border-indigo-200 dark:border-indigo-800" },
-  IN_PROGRESS: { label: "In Progress",  color: "text-green-600 dark:text-green-400",    bg: "bg-green-50 dark:bg-green-950/20",     border: "border-green-200 dark:border-green-800" },
-  COMPLETED:   { label: "Completed",    color: "text-emerald-600 dark:text-emerald-400",bg: "bg-emerald-50 dark:bg-emerald-950/20", border: "border-emerald-200 dark:border-emerald-800" },
-  CANCELLED:   { label: "Cancelled",    color: "text-red-600 dark:text-red-400",         bg: "bg-red-50 dark:bg-red-950/20",         border: "border-red-200 dark:border-red-800" },
+  PENDING: { label: "Pending", color: "text-yellow-600 dark:text-yellow-400", bg: "bg-yellow-50 dark:bg-yellow-950/20", border: "border-yellow-200 dark:border-yellow-800" },
+  ACCEPTED: { label: "Accepted", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-950/20", border: "border-blue-200 dark:border-blue-800" },
+  ARRIVED: { label: "Arrived", color: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-50 dark:bg-indigo-950/20", border: "border-indigo-200 dark:border-indigo-800" },
+  IN_PROGRESS: { label: "In Progress", color: "text-green-600 dark:text-green-400", bg: "bg-green-50 dark:bg-green-950/20", border: "border-green-200 dark:border-green-800" },
+  COMPLETED: { label: "Completed", color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/20", border: "border-emerald-200 dark:border-emerald-800" },
+  CANCELLED: { label: "Cancelled", color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-950/20", border: "border-red-200 dark:border-red-800" },
 };
 
 // ─── Header ───────────────────────────────────────────────────────────────────
@@ -125,25 +125,23 @@ function Header({ activeTab, setActiveTab, onHistoryClick, user, onToggleStatus,
       <nav className="flex items-center gap-1 ml-auto mr-3">
         <button
           onClick={() => setActiveTab("dashboard")}
-          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === "dashboard"
+          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap ${activeTab === "dashboard"
               ? "bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400"
               : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-          }`}
+            }`}
         >
-          
+
           <span className="hidden sm:inline">Dashboard</span>
         </button>
 
         <button
           onClick={onHistoryClick}
-          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === "history"
+          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap ${activeTab === "history"
               ? "bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400"
               : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-          }`}
+            }`}
         >
-          
+
           <span className="hidden sm:inline">Trip History</span>
         </button>
       </nav>
@@ -153,11 +151,10 @@ function Header({ activeTab, setActiveTab, onHistoryClick, user, onToggleStatus,
         {/* Online / Offline pill */}
         <button
           onClick={onToggleStatus}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors border ${
-            isLive
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors border ${isLive
               ? "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800 text-green-700 dark:text-green-400"
               : "bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400"
-          }`}
+            }`}
         >
           <span className={`h-2 w-2 rounded-full shrink-0 ${isLive ? "bg-green-500 animate-pulse" : "bg-gray-400"}`} />
           <span className="hidden md:inline">{isLive ? "Online" : "Offline"}</span>
@@ -312,16 +309,14 @@ function TripDetailModal({ trip, onClose }) {
           </div>
 
           {/* Payment */}
-          <div className={`border rounded-xl p-3 flex items-center justify-between gap-3 ${
-            payment.isPaid
+          <div className={`border rounded-xl p-3 flex items-center justify-between gap-3 ${payment.isPaid
               ? "bg-green-50 dark:bg-green-950/20 border-green-100 dark:border-green-900/30"
               : "bg-orange-50 dark:bg-orange-950/20 border-orange-100 dark:border-orange-900/30"
-          }`}>
+            }`}>
             <div>
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Payment</p>
-              <span className={`text-xs font-extrabold flex items-center gap-1 ${
-                payment.isPaid ? "text-green-600 dark:text-green-400" : "text-orange-600 dark:text-orange-400"
-              }`}>
+              <span className={`text-xs font-extrabold flex items-center gap-1 ${payment.isPaid ? "text-green-600 dark:text-green-400" : "text-orange-600 dark:text-orange-400"
+                }`}>
                 {payment.isPaid ? <CheckCircle2 className="w-3.5 h-3.5 shrink-0" /> : <AlertTriangle className="w-3.5 h-3.5 shrink-0" />}
                 {payment.isPaid ? "Paid" : "Unpaid"}
               </span>
@@ -462,13 +457,13 @@ export default function PrivateDriverDashboard() {
   const mapDestination = currentAssignment
     ? currentAssignment.status === "IN_PROGRESS"
       ? {
-          lat: currentAssignment.dropoffLocation?.latitude,
-          lng: currentAssignment.dropoffLocation?.longitude,
-        }
+        lat: currentAssignment.dropoffLocation?.latitude,
+        lng: currentAssignment.dropoffLocation?.longitude,
+      }
       : {
-          lat: currentAssignment.pickupLocation?.latitude,
-          lng: currentAssignment.pickupLocation?.longitude,
-        }
+        lat: currentAssignment.pickupLocation?.latitude,
+        lng: currentAssignment.pickupLocation?.longitude,
+      }
     : null;
 
   // ── Fetch dashboard data (pending + accepted) ──
@@ -584,7 +579,7 @@ export default function PrivateDriverDashboard() {
     socket.on("booking_declined", () => {
       fetchDashboard();
     });
-    
+
     return () => {
       clearInterval(interval);
       stopEmergencyAlert();
@@ -622,15 +617,20 @@ export default function PrivateDriverDashboard() {
   // ── Booking actions ──
   const handleAccept = async (bookingId) => {
     try {
-      await API.put(`/api/bookings/${bookingId}/accept`);
+      console.log("Accepting booking:", bookingId);
+
+      const res = await API.put(`/api/bookings/${bookingId}/accept`);
+
+      console.log("Accept response:", res.data);
+
       stopEmergencyAlert();
-      toast.success("Booking accepted! Navigate to pickup location.");
+      toast.success("Booking accepted!");
       fetchDashboard();
-    } catch {
+    } catch (err) {
+      console.log("Accept error:", err.response?.data || err.message);
       toast.error("Failed to accept booking");
     }
   };
-
   const handleArrived = async () => {
     if (!currentAssignment) return;
     try {
@@ -731,10 +731,10 @@ export default function PrivateDriverDashboard() {
   // ── Step descriptions for active assignment ──
   const getStepDescription = (status) => {
     switch (status) {
-      case "ACCEPTED":    return { title: "Navigate to Pickup", subtitle: "Head to the patient's pickup location", icon: Navigation, color: "text-blue-600 dark:text-blue-400" };
-      case "ARRIVED":     return { title: "Arrived at Pickup", subtitle: "You have reached the pickup location. Start the trip when ready.", icon: CheckCircle2, color: "text-indigo-600 dark:text-indigo-400" };
+      case "ACCEPTED": return { title: "Navigate to Pickup", subtitle: "Head to the patient's pickup location", icon: Navigation, color: "text-blue-600 dark:text-blue-400" };
+      case "ARRIVED": return { title: "Arrived at Pickup", subtitle: "You have reached the pickup location. Start the trip when ready.", icon: CheckCircle2, color: "text-indigo-600 dark:text-indigo-400" };
       case "IN_PROGRESS": return { title: "Trip In Progress", subtitle: "Navigate to the dropoff destination", icon: Flag, color: "text-green-600 dark:text-green-400" };
-      default:            return { title: "Active Trip", subtitle: "", icon: Ambulance, color: "text-gray-600 dark:text-gray-400" };
+      default: return { title: "Active Trip", subtitle: "", icon: Ambulance, color: "text-gray-600 dark:text-gray-400" };
     }
   };
 
@@ -927,14 +927,12 @@ export default function PrivateDriverDashboard() {
                                 </div>
 
                                 {/* Payment badge */}
-                                <div className={`flex items-center justify-between px-2.5 py-1.5 rounded-xl border ${
-                                  payment.isPaid
+                                <div className={`flex items-center justify-between px-2.5 py-1.5 rounded-xl border ${payment.isPaid
                                     ? "bg-green-50 dark:bg-green-950/20 border-green-100 dark:border-green-900/30"
                                     : "bg-orange-50 dark:bg-orange-950/20 border-orange-100 dark:border-orange-900/30"
-                                }`}>
-                                  <span className={`text-[10px] font-extrabold uppercase tracking-wide flex items-center gap-1 ${
-                                    payment.isPaid ? "text-green-600 dark:text-green-400" : "text-orange-600 dark:text-orange-400"
                                   }`}>
+                                  <span className={`text-[10px] font-extrabold uppercase tracking-wide flex items-center gap-1 ${payment.isPaid ? "text-green-600 dark:text-green-400" : "text-orange-600 dark:text-orange-400"
+                                    }`}>
                                     {payment.isPaid ? <CheckCircle2 className="w-3.5 h-3.5 shrink-0" /> : <AlertTriangle className="w-3.5 h-3.5 shrink-0" />}
                                     {payment.isPaid ? "Paid" : "Unpaid"}
                                   </span>
@@ -981,7 +979,7 @@ export default function PrivateDriverDashboard() {
                                         toast.error("Failed to decline booking.");
                                       }
                                     }}
-                                    
+
                                     className="flex-1 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 py-2 rounded-xl font-bold text-xs transition-colors border border-gray-200 dark:border-gray-700"
                                   >
                                     Decline
@@ -1027,18 +1025,17 @@ export default function PrivateDriverDashboard() {
               {/* Filter tabs */}
               <div className="flex gap-2 mb-6 p-1 bg-gray-100 dark:bg-gray-900 rounded-xl max-w-sm overflow-x-auto">
                 {[
-                  { key: "all",       label: "All",       count: historyBookings.length },
+                  { key: "all", label: "All", count: historyBookings.length },
                   { key: "completed", label: "Completed", count: historyBookings.filter((b) => b.status === "COMPLETED").length },
                   { key: "cancelled", label: "Cancelled", count: historyBookings.filter((b) => b.status === "CANCELLED").length },
                 ].map(({ key, label, count }) => (
                   <button
                     key={key}
                     onClick={() => setHistoryFilter(key)}
-                    className={`flex-1 py-2 text-xs font-bold rounded-lg capitalize transition-all whitespace-nowrap ${
-                      historyFilter === key
+                    className={`flex-1 py-2 text-xs font-bold rounded-lg capitalize transition-all whitespace-nowrap ${historyFilter === key
                         ? "bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 shadow-sm"
                         : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
-                    }`}
+                      }`}
                   >
                     {label} ({count})
                   </button>
@@ -1106,11 +1103,10 @@ export default function PrivateDriverDashboard() {
                                   <IndianRupee className="w-3.5 h-3.5" />{booking.estimatedPrice}
                                 </span>
                               )}
-                              <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 ${
-                                payment.isPaid
+                              <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 ${payment.isPaid
                                   ? "bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400"
                                   : "bg-orange-100 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400"
-                              }`}>
+                                }`}>
                                 {payment.isPaid ? <CheckCircle2 className="w-3 h-3 shrink-0" /> : <AlertTriangle className="w-3 h-3 shrink-0" />}
                                 {payment.isPaid ? "Paid" : "Unpaid"}
                               </span>

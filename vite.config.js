@@ -10,15 +10,15 @@ export default defineConfig({
     strictPort: false,
     proxy: {
       "/auth": {
-        target: "https://emstrap-finalworking.onrender.com",
+        target: "http://localhost:5000",
         changeOrigin: true,
       },
       "/api": {
-        target: "https://emstrap-finalworking.onrender.com",
+        target: "http://localhost:5000",
         changeOrigin: true,
       },
       "/socket.io": {
-        target: "https://emstrap-finalworking.onrender.com",
+        target: "http://localhost:5000",
         changeOrigin: true,
         ws: true,
       },
